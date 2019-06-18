@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>InSaying</title>
+    <style type="text/css">
+        table {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        table thead th {
+            border: 1px solid black;
+        }
+        table tbody td {
+            border: 1px solid black;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" href="../../css/sample.css" rel="stylesheet" media="screen" />
+	<link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../css/index.css">
+	<link rel="shortcut icon" href="/logo1.ico">
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" href="#">InSaying</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/index">首页<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="register" href="/register">注册</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="login" href="/login">登陆</a>
+      </li>
+        <li class="nav-item">
+            <a class="nav-link" id="aaa" href="/index" th:text="${username}"></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="write" href="/write">创作</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" id="settings" href="/settings">设置</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="exit" href="/logout">登出</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+    </form>
+  </div>
+</nav>
+	<div class="main continer">
+		<div class="center continer">
+			<div class="left">
+                <div class="page-header">
+                    <h1 th:text="${title}"></h1>
+                </div>
+                <p><small th:text="'作者:'+${currentusername}+' 创建于：'+${createtime}"></small></p>
+                <p th:utext="${htmlContent}"></p>
+			</div>
+            <div class="right d-none d-sm-block">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{${currentuserimg}}"  class="card-img-top" >
+                    <div class="card-body">
+                        <a class="card-title" th:href="@{/user/{userid}/0(userid=${userid})}" th:text="${currentusername}"></a>
+                        <p class="card-text" th:text="${myshort}"></p>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</body>
+	<script src="../../lib/jquery/jquery.js"></script>
+	<script src="../../lib/bootstrap/js/bootstrap.js"></script>
+	<script src="../../js/index.js"></script>
+</html>

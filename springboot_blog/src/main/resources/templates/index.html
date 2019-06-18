@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>InSaying</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" href="../../css/sample.css" rel="stylesheet" media="screen" />
+	<link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../css/index.css">
+	<link rel="shortcut icon" href="/logo1.ico">
+</head>
+<body>
+    <div th:replace="~{header :: header}"></div>
+	<div class="main continer">
+		<div class="center continer">
+			<div class="left">
+                <div th:each="lm:${list}" class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img th:src="@{${lm['userimg']}}" class="card-img">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><a th:href="@{/article/{articleId}(articleId=${lm['articleId']})}" th:text="${lm['title']}"></a></h5>
+                                <p class="card-text"><small class="text-muted"><a th:href="@{/user/{userid}/0(userid=${lm['userId']})}"  th:text="${lm['username']}"></a></small></p>
+                                <p class="card-text" th:text="${lm['shortcut']}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+			</div>
+			<div class="right d-none d-sm-block">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{${currentuserimg}}"  class="card-img-top" >
+                    <div class="card-body">
+                        <a class="card-title" th:href="@{/user/{userid}/0(userid=${userid})}" th:text="${username}"></a>
+                        <p class="card-text" th:text="${myshort}"></p>
+                    </div>
+                </div>
+			</div>
+		</div>
+		
+	</div>
+<footer th:replace="~{footer :: footer}"></footer>
+</body>
+	<script src="../../lib/jquery/jquery.js"></script>
+	<script src="../../lib/bootstrap/js/bootstrap.js"></script>
+	<script src="../../js/index.js"></script>
+    <script src="../../js/indexhuangye.js"></script>
+</html>

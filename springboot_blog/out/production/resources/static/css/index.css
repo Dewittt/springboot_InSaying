@@ -1,0 +1,24 @@
+body{
+	font-size: 14px;
+	line-height: 1.4;
+}
+.main{
+	width: 100%;
+	min-height: 500px;
+	padding-bottom: 150px;
+	margin-top: 5px; 
+}
+.left{
+	display: block;
+	float: left;
+	width: 73%;
+}
+.right{
+	width: 25%;
+	display: block;
+	float: right;
+}
+.center{
+	width: 65%;
+	margin: 0 auto;
+}

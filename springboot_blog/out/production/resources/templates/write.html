@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<link type="text/css" href="../../css/sample.css" rel="stylesheet" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../css/write.css">
+	<link rel="shortcut icon" href="/logo1.ico">
+	<title>创作</title>
+</head>
+<body>
+
+<header>
+	<div class="centered">
+		<h1><a class="navbar-light" href="/index">InSaying</a></h1>
+
+		<input type="checkbox" id="menu-toggle" />
+		<label for="menu-toggle"></label>
+		  
+		<nav>
+			<ul>
+				<li><a href="/index">首页</a></li>
+				<li><a href="https://github.com/dewittt">GitHub</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<main>
+	
+	<div class="centered">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="title">标题</span>
+			</div>
+			<input type="text" class="form-control" placeholder="请输入标题" aria-label="请输入标题" id="title1" required="required" aria-describedby="title">
+		</div>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="shortcut">简介</span>
+			</div>
+			<input type="text" class="form-control" placeholder="简要说明内容" aria-label="简要说明内容" id="shortcut1" aria-describedby="shortcut">
+		</div>
+	<!--<input class="form-control form-control-lg" id="title" name="title" type="text" required placeholder="在此输入标题">-->
+		<div id="editor">
+		</div>
+	</div>
+
+		
+</main>
+<button id="submit">提交</button>
+
+<footer>
+	<div>
+		<p>InSaying – The online blog for the world – <a href="https://insaying.com/">https://insaying.com/</a></p>
+		<p>Copyright © 2019-2020, <a href="https://github.com/dewittt">github</a>  dewittt</p>
+	</div>
+</footer>
+
+<script src="../../js/ckeditor.js"></script>
+<script src="../../lib/jquery/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.js"></script>
+<script src="../../js/write.js"></script>
+
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#editor' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+
+</body>
+</html>

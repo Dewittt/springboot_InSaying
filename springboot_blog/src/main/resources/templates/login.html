@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>登陆</title>
+  <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/login.css">
+    <link rel="shortcut icon" href="logo1.ico">
+</head>
+<body>
+  <div class="identity_form container">
+    <form action="/confirm" method="post">
+      <div class="form-group">
+        <label>账号</label>
+        <input name="username" type="text" class="form-control" id="NameInput" placeholder="请输入账号" required="required">
+      </div>
+      <div class="form-group">
+        <label>密码</label>
+        <input type="password" name="password" class="form-control" id="TelephoneInput" placeholder="请输入密码" required="required">
+      </div>
+      <div class="form-group">
+        <input type="checkbox" value="remeber-me">记住我
+      </div>
+      <div class="form-group select-section">
+        <input type="submit" value="登陆" class="btn btn-primary"/>
+      </div>
+    </form>
+  </div>
+</body>
+  <script src="../../lib/jquery/jquery.js"></script>
+  <script src="../../lib/bootstrap/js/bootstrap.js"></script>
+</html>
