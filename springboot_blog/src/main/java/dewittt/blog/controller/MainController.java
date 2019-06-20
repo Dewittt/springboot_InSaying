@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.ConstraintViolationException;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,8 @@ public class MainController {
     public String register(){return "register";}
 
     @GetMapping("/index")
-    public String index(){
+    public String index(Principal principal){
+
         return "index";
     }
 

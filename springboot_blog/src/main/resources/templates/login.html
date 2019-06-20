@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">  
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="identity_form container">
-    <form action="/confirm" method="post">
+    <form th:action="@{~/login}" method="post">
       <div class="form-group">
         <label>账号</label>
         <input name="username" type="text" class="form-control" id="NameInput" placeholder="请输入账号" required="required">

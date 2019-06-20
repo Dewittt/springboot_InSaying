@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,8 @@ public class AdminController {
 
 
     @GetMapping
-    public ModelAndView listUsers(Model model) {
+    public ModelAndView listUsers(Model model, Principal principal) {
+        System.out.println("11111"+principal.getName());
         List<Menu> list = new ArrayList<>();
         list.add(new Menu("用户管理", "/users"));
         model.addAttribute("list", list);
