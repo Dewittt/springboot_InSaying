@@ -1,6 +1,6 @@
 package dewittt.blog.controller;
 
-import dewittt.blog.entity.Menu;
+import dewittt.blog.vo.Menu;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

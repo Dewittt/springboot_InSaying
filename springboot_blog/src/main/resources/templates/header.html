@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-th-fragment="header"  xmlns:th="http://www.thymeleaf.org"
-                                            xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+                                            xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -17,9 +17,6 @@
     <div class="container">
         <nav class="navbar navbar-light bg-light navbar-expand-lg">
             <a class="navbar-brand" href="/index" th:href="@{/}">InSaying</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" style="width: 75%;" type="text">
                 <a href="/blogs?keyword=d" class="btn btn-outline-secondary my-2 my-sm-0">搜索</a>
@@ -29,20 +26,21 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span sec:authentication="name"></span>
                     </button>
-                    <!--<div th:text="${#authentication.principal.id}"></div>-->
-                    <!--<div class="dropdown-menu">-->
-                        <!--<a class="dropdown-item" th:href="@{'/u/' + ${#authentication.principal.username}}">个人主页</a>-->
-                        <!--<a class="dropdown-item" th:href="@{'/u/'+${#authentication.principal.username}} +'/profile'">个人设置</a>-->
-                    <!--</div>-->
+                    <div th:text="${#authentication.principal.id}"></div>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{'/u/' + ${#authentication.principal.username}}">个人主页</a>
+                        <a class="dropdown-item" th:href="@{'/u/'+${#authentication.principal.username}} +'/profile'">个人设置</a>
+                    </div>
                 </div>
-                <!--<div>-->
-                    <!--<a th:href="@{'/u/'+${#authentication.principal.username}+'/blogs/edit'}" class="btn btn-outline-success my-2 my-sm-0">写博客</a>-->
-                <!--</div>-->
+                <div>
+                    <a th:href="@{'/u/'+${#authentication.principal.username}+'/blogs/edit'}" class="btn btn-outline-success my-2 my-sm-0">写博客</a>
+                </div>
                 <form action="/logout" th:action="@{/logout}" method="post">
                     <input class="btn-outline-success" type="submit" value="退出">
                 </form>
             </div>
-            <div sec:authentication="isAnonymous()">
+
+            <div sec:authorize="isAnonymous()">
                 <a href="/login" class="btn btn-outline-success my-2 my-sm-0" type="submit">登录</a>
                 <a href="/register" class="btn btn-outline-success my-2 my-sm-0" type="submit">注册</a>
             </div>

@@ -1,4 +1,4 @@
-package dewittt.blog.entity;
+package dewittt.blog.vo;
 
 public class Menu {
     private String name;
