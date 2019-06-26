@@ -19,7 +19,6 @@ public class AdminController {
 
     @GetMapping
     public ModelAndView listUsers(Model model, Principal principal) {
-        System.out.println("11111"+principal.getName());
         List<Menu> list = new ArrayList<>();
         list.add(new Menu("用户管理", "/users"));
         model.addAttribute("list", list);
