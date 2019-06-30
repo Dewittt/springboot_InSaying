@@ -51,10 +51,11 @@ $(function () {
                    success:function (data) {
                        if (data.success){
                            $(".blog-avatar").attr("src",data.avatarUrl);
+                           toastr.success("保存成功！");
                        } else{
                            toastr.error("获取data.avatarUrl错误!");
                        }
-                   }
+                   },
                    error:function () {
                        toastr.error("访问/u/username/avatar失败!");
                    }

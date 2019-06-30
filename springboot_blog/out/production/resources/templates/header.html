@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
-    <link type="text/css" href="../../css/sample.css" rel="stylesheet" media="screen" />
-    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../../css/toastr.css">
-    <link rel="stylesheet" type="text/css" href="../../css/thymeleaf-bootstrap-paginator.css">
-    <link rel="shortcut icon" href="/logo1.ico">
+    <link type="text/css" href="../../css/sample.css" th:href="@{/css/sample.css}" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css" th:href="@{/lib/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" href="../../css/index.css" th:href="@{/css/index.css}">
+    <link rel="stylesheet" type="text/css" href="../../css/toastr.css" th:href="@{/css/toastr.css}">
+    <link href="../../css/nprogress.css" th:href="@{/css/nprogress.css}" rel="stylesheet">
+    <link href="../../css/thinker-md.vendor.css" th:href="@{/css/thinker-md.vendor.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/thymeleaf-bootstrap-paginator.css" th:href="@{/css/thymeleaf-bootstrap-paginator.css}">
+    <link rel="shortcut icon" href="/logo1.ico" th:href="@{/logo1.ico}">
 </head>
 <body>
     <div class="container">

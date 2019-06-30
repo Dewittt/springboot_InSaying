@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="~{fragments/header :: header}">
+<head th:replace="~{header :: header}">
 </head>
 <body>
 	<div class="container blog-content-container">
@@ -13,9 +13,9 @@
 						<span> <a class="blog-edit-avatar" data-toggle="modal"
 							data-target="#flipFlop" role="button"
 							data-th-attr="userName=${userModel.user.username}"> <img
-								th:src="${userModel.user.avatar} == null 
+								th:src="${userModel.user.imgPath} == null
 										? '/images/avatar-defualt.jpg' 
-										: ${userModel.user.avatar}"
+										: ${userModel.user.imgPath}"
 								class="blog-avatar blog-avatar-230" />
 						</a>
 						</span>
@@ -82,7 +82,7 @@
 		</div>
 	</div>
 
-	<div th:replace="~{fragments/footer :: footer}">...</div>
+	<div th:replace="~{footer :: footer}">...</div>
 
 	<!-- JavaScript -->
 	<script th:inline="javascript">
