@@ -16,4 +16,6 @@ public interface BlogService {
     Page<blog> listBlogByTitleVote(User user, String title, Pageable pageable);
     Page<blog> listBlogByTitleVoteAndSort(User user,String title,Pageable pageable);
     void readingIncrease(Long id);
+    blog createComment(Long blogId,String commentContent);
+    void removeComment(Long blogId,Long commentId);
 }

@@ -69,32 +69,33 @@
                 </div>
 
                 <div class="card-block">
-
-
                     <h5>评论：</h5>
                     <div class="row">
                         <div class="col-lg-12">
-                            <textarea class="blog-textarea" placeholder="看帖需留言~"></textarea>
+                            <textarea class="blog-textarea" id="commentContent" placeholder="看帖需留言~"></textarea>
                         </div>
                     </div>
-                    <button class="btn btn-primary float-right">发表评论</button>
+                    <button id="submitContent" class="btn btn-primary float-right">发表评论</button>
                     <button class="btn btn-primary float-right">点赞</button>
 
                 </div>
-                <div class="card-block">
-
-                    <div class="row">
+                <div class="card-block" id="mainContainer">
+                    <div class="row" id="mainContainerRepleace" th:each="comment,commentStat:${comments}"
+                    th:object="${comment}">
                         <h2 class="card-title col-lg-1 col-md-2">
 							<span>
-			                  <a href="/u/waylau" title="waylau">
-			                    <img src="https://waylau.com/images/waylau_181_181.jpg" class="blog-avatar-50"
-                                     alt="waylau">
+			                  <a href="/u/dewitt" title="dewitt" th:href="'/u/'+*{user.username}" th:title="*{user.username}">
+			                    <img th:src="*{user.imgPath}==null?'/img/github.svg':*{user.imgPath}" class="blog-avatar-50">
 			                  </a>
 					        </span>
                         </h2>
                         <div class="card-text col-lg-11 col-md-10">
-                            <a href="/u/waylau" class="card-link">waylau</a> 1楼 2017-03-17 14:20
-                            <p>不错哦，顶起！</p>
+                            <a href="/u/dewitt" th:href="'/u/'+*{user.username}" class="card-link" th:text="*{user.username}">dewitt</a>
+                            [[${commentStat.index}+1]]楼
+                            [[${#dates.format(comment.createTime,'yyyy-MM-dd HH:mm')}]]
+                            <a href="javascript:void(0)" class="blog-delete-comment" th:if="${commentOwner} eq *{user.username}"
+                               th:attr="commentId=*{id}"><i class="fa fa-trash-o"></i></a>
+                            <p th:text="*{content}">不错哦，顶起！</p>
                         </div>
                     </div>
 

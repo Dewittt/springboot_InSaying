@@ -5,10 +5,12 @@ import com.github.rjeschke.txtmark.Processor;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
-public class blog {
+public class blog implements Serializable {
     private static final long SerialVersionUID=1L;
 
     @Id
@@ -50,8 +52,12 @@ public class blog {
     @Column(name = "readtimes")
     private Integer readtimes=0;
 
-    @Column(name = "comments")
-    private Integer comments=0;
+    @Column(name = "commentsSize")
+    private Integer commentsSize;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name = "blog_comment",joinColumns = @JoinColumn(name = "blog_id",referencedColumnName = "id"))
+    private List<Comment> comments;
 
     @Column(name = "votes")
     private Integer votes=0;
@@ -125,12 +131,36 @@ public class blog {
         this.readtimes = readtimes;
     }
 
-    public Integer getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Integer comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
+        this.commentsSize = comments.size();
+    }
+
+    public Integer getCommentsSize() {
+        return commentsSize;
+    }
+
+    public void setCommentsSize(Integer commentsSize) {
+        this.commentsSize = commentsSize;
+    }
+
+    public void addComment(Comment comment){
+        this.comments.add(comment);
+    }
+
+    public void removeComment(Long commentId){
+        for (int i=0;i<comments.size();i++){
+            if (comments.get(i).getId()==commentId){
+                this.comments.remove(i);
+                break;
+            }
+        }
+
+        this.commentsSize = this.comments.size();
     }
 
     public Integer getVotes() {
