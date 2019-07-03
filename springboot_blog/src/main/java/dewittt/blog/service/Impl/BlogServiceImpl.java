@@ -1,8 +1,8 @@
 package dewittt.blog.service.Impl;
 
+import dewittt.blog.entity.Blog;
 import dewittt.blog.entity.Comment;
 import dewittt.blog.entity.User;
-import dewittt.blog.entity.blog;
 import dewittt.blog.repository.BlogRepository;
 import dewittt.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,8 @@ public class BlogServiceImpl implements BlogService {
     private BlogRepository blogRepository;
 
     @Override
-    public blog saveBlog(blog blog) {
-        blog rblog = blogRepository.save(blog);
+    public Blog saveBlog(Blog blog) {
+        Blog rblog = blogRepository.save(blog);
         return rblog;
     }
 
@@ -31,29 +31,29 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public Optional<blog> getBlogById(Long id) {
+    public Optional<Blog> getBlogById(Long id) {
         return blogRepository.findById(id);
     }
 
     @Override
-    public Page<blog> listBlogByTitleVote(User user, String title, Pageable pageable) {
+    public Page<Blog> listBlogByTitleVote(User user, String title, Pageable pageable) {
         title = "%"+title+"%";
         String tags = title;
-        Page<blog> blogs = blogRepository.findByTitleLikeAndUserOrTagsLikeAndUserOrderByCreateTimeDesc(title,user,tags,user,pageable);
+        Page<Blog> blogs = blogRepository.findByTitleLikeAndUserOrTagsLikeAndUserOrderByCreateTimeDesc(title,user,tags,user,pageable);
         return blogs;
     }
 
     @Override
-    public Page<blog> listBlogByTitleVoteAndSort(User user, String title, Pageable pageable) {
+    public Page<Blog> listBlogByTitleVoteAndSort(User user, String title, Pageable pageable) {
         title = "%"+title+"%";
-        Page<blog> blogs = blogRepository.findByUserAndTitleLike(user,title,pageable);
+        Page<Blog> blogs = blogRepository.findByUserAndTitleLike(user,title,pageable);
         return blogs;
     }
 
     @Override
     public void readingIncrease(Long id) {
-        Optional<blog> blog = blogRepository.findById(id);
-        blog newBlog = null;
+        Optional<Blog> blog = blogRepository.findById(id);
+        Blog newBlog = null;
         if (blog.isPresent()){
             newBlog = blog.get();
             newBlog.setReadtimes(newBlog.getReadtimes()+1);
@@ -62,9 +62,9 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public blog createComment(Long blogId, String commentContent) {
-        Optional<blog> optionalBlog = blogRepository.findById(blogId);
-        blog originalBlog = null;
+    public Blog createComment(Long blogId, String commentContent) {
+        Optional<Blog> optionalBlog = blogRepository.findById(blogId);
+        Blog originalBlog = null;
         if (optionalBlog.isPresent()){
             originalBlog = optionalBlog.get();
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -77,9 +77,9 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public void removeComment(Long blogId, Long commentId) {
-        Optional<blog> optionalBlog = blogRepository.findById(blogId);
+        Optional<Blog> optionalBlog = blogRepository.findById(blogId);
         if (optionalBlog.isPresent()){
-            blog origionalBlog = optionalBlog.get();
+            Blog origionalBlog = optionalBlog.get();
             origionalBlog.removeComment(commentId);
             this.saveBlog(origionalBlog);
         }

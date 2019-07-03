@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
-public class blog implements Serializable {
+public class Blog implements Serializable {
     private static final long SerialVersionUID=1L;
 
     @Id
@@ -65,6 +65,8 @@ public class blog implements Serializable {
     @Column(name = "tags",length = 100)
     private String tags;
 
+    protected Blog() {
+    }
 
     public Long getId() {
         return id;
@@ -179,12 +181,10 @@ public class blog implements Serializable {
         this.tags = tags;
     }
 
-    public blog(@NotEmpty(message = "标题不能为空") @Size(min = 2, max = 50) String title, @NotEmpty(message = "简介不能为空") @Size(min = 2, max = 300) String summary, @NotEmpty(message = "内容不能为空") @Size(min = 2) String content) {
+    public Blog(@NotEmpty(message = "标题不能为空") @Size(min = 2, max = 50) String title, @NotEmpty(message = "简介不能为空") @Size(min = 2, max = 300) String summary, @NotEmpty(message = "内容不能为空") @Size(min = 2) String content) {
         this.title = title;
         this.summary = summary;
         this.content = content;
     }
-
-
 }
 

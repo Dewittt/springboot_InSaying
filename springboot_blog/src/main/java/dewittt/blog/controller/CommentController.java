@@ -1,8 +1,8 @@
 package dewittt.blog.controller;
 
+import dewittt.blog.entity.Blog;
 import dewittt.blog.entity.Comment;
 import dewittt.blog.entity.User;
-import dewittt.blog.entity.blog;
 import dewittt.blog.service.BlogService;
 import dewittt.blog.service.CommentService;
 import dewittt.blog.util.ConstraintViolationExceptionHandler;
@@ -31,7 +31,7 @@ public class CommentController {
 
     @GetMapping
     public String listComments(@RequestParam(value = "blogId",required = true)Long blogId, Model model){
-        Optional<blog> optionalBlog = blogService.getBlogById(blogId);
+        Optional<Blog> optionalBlog = blogService.getBlogById(blogId);
         List<Comment> comments = null;
         if (optionalBlog.isPresent()){
             comments = optionalBlog.get().getComments();

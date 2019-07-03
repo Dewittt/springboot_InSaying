@@ -1,7 +1,6 @@
 package dewittt.blog.service.Impl;
 
 import dewittt.blog.entity.Comment;
-import dewittt.blog.entity.blog;
 import dewittt.blog.repository.CommentRepository;
 import dewittt.blog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;

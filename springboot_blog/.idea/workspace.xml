@@ -74,28 +74,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/entity/blog.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/UserspaceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1136">
-              <caret line="134" column="19" lean-forward="true" selection-start-line="134" selection-start-column="19" selection-end-line="134" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3230#3231#0" expanded="true" />
-                <element signature="e#3265#3266#0" expanded="true" />
-                <element signature="e#3322#3323#0" expanded="true" />
-                <element signature="e#3370#3371#0" expanded="true" />
-                <element signature="e#3420#3421#0" expanded="true" />
-                <element signature="e#3448#3449#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/entity/Comment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            <state relative-caret-position="668">
+              <caret line="108" column="48" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,34 +86,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/repository/CommentRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userspace/blogedit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/CommentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/Impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="809">
+              <caret line="66" column="6" lean-forward="true" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -139,24 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/Impl/CommentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#521#522#0" expanded="true" />
-                <element signature="e#553#554#0" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#656#657#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/Impl/BlogServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="721">
-              <caret line="83" column="41" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
+            <state relative-caret-position="361">
+              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/CommentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="737">
-              <caret line="48" column="46" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="46" />
+            <state relative-caret-position="-76">
+              <caret line="44" column="13" lean-forward="true" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,23 +118,62 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userspace/blog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2546">
-              <caret line="134" column="33" lean-forward="true" selection-start-line="134" selection-start-column="33" selection-end-line="134" selection-end-column="33" />
+            <state relative-caret-position="308">
+              <caret line="77" column="38" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userspace/blogedit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userspace/blog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1862">
-              <caret line="98" column="18" selection-start-line="98" selection-start-column="18" selection-end-line="98" selection-end-column="18" />
+            <state relative-caret-position="-305">
+              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#form#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-20">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -210,8 +191,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sec</find>
-      <find>viewResolver</find>
       <find>key</find>
       <find>blog</find>
       <find>ava</find>
@@ -231,7 +210,17 @@
       <find>mainContainer</find>
       <find>getcomments</find>
       <find>comments</find>
+      <find>{username}/blogs/edit</find>
+      <find>null</find>
+      <find>system</find>
       <find>blogId</find>
+      <find>/Blog</find>
+      <find>.blog</find>
+      <find>blog-content-container</find>
+      <find>/userspace/Blog</find>
+      <find>1</find>
+      <find>drop</find>
+      <find>submit</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -271,25 +260,25 @@
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/repository/BlogRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/userspace/main.js" />
-        <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/controller/UserspaceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userspace/u.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/userspace/u.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userspace/blogedit.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/userspace/blogedit.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userspace/profile.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/footer.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/header.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/entity/Comment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/entity/blog.java" />
         <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/service/BlogService.java" />
         <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/service/Impl/BlogServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/controller/CommentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/service/Impl/CommentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/service/CommentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/repository/CommentRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/userspace/blogedit.js" />
+        <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/entity/blog.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/controller/UserspaceController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userspace/blog.html" />
+        <option value="$PROJECT_DIR$/src/main/java/dewittt/blog/controller/CommentController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/header.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/userspace/blog.js" />
       </list>
     </option>
@@ -297,7 +286,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="25" />
     <option name="width" value="960" />
-    <option name="height" value="1053" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -405,6 +394,26 @@
               <item name="springboot_blog" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dewittt" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot_blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_blog" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dewittt" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot_blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_blog" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -414,24 +423,6 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springboot_blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_blog" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springboot_blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_blog" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot_blog" type="b2602c69:ProjectViewProjectNode" />
@@ -458,18 +449,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springboot_blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_blog" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot_blog" type="b2602c69:ProjectViewProjectNode" />
@@ -478,6 +458,16 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="admins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot_blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_blog" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot_blog" type="b2602c69:ProjectViewProjectNode" />
@@ -508,8 +498,8 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562057757080" />
-    <property name="last_opened_file_path" value="$USER_HOME$/下载/blog-blog" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562124244195" />
+    <property name="last_opened_file_path" value="$USER_HOME$/下载/blog-comment" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -630,18 +620,19 @@
       <workItem from="1561859516727" duration="2171000" />
       <workItem from="1561861695208" duration="2919000" />
       <workItem from="1561968039214" duration="726000" />
-      <workItem from="1562022861185" duration="22197000" />
+      <workItem from="1562022861185" duration="22310000" />
+      <workItem from="1562073609949" duration="9625000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222381000" />
+    <option name="totallyTimeSpent" value="232119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15438034" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14583333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -651,13 +642,13 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946582" weight="0.587027" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946582" weight="0.54594594" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32901832" />
-      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Spring" order="8" weight="0.32972974" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5005342" side_tool="true" weight="0.90486485" />
@@ -681,69 +672,29 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/UserspaceController.java</url>
+          <line>186</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/UserspaceController.java</url>
+          <line>165</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/BlogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/util/ConstraintViolationExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="11" column="58" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userspace/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admins/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/font-awesome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="191" column="1" selection-start-line="191" selection-start-column="1" selection-end-line="191" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userspace/u.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="54" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userspace/u.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="931">
@@ -822,23 +773,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/images/emoji/twemoji.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/UserspaceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2679">
-          <caret line="141" column="46" selection-start-line="141" selection-start-column="46" selection-end-line="141" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userspace/blogedit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/config/templateEngineConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -849,27 +783,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userspace/blogedit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/blog.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#form#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,20 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2606#2607#0" expanded="true" />
-            <element signature="e#2631#2632#0" expanded="true" />
-            <element signature="e#2821#2822#0" expanded="true" />
-            <element signature="e#2861#2862#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -927,10 +830,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/BlogService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/entity/Comment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+        <state relative-caret-position="342">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/repository/CommentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/CommentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -944,70 +867,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/repository/CommentRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/users/edit.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="133">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/BlogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/Impl/BlogServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/CommentService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/BlogService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        <state relative-caret-position="228">
+          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/repository/BlogRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/entity/Blog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="187" column="5" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="20" column="55" lean-forward="true" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2606#2607#0" expanded="true" />
+            <element signature="e#2631#2632#0" expanded="true" />
+            <element signature="e#2821#2822#0" expanded="true" />
+            <element signature="e#2861#2862#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/Impl/CommentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/service/Impl/BlogServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="83" column="41" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
+        <state relative-caret-position="361">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/entity/blog.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1136">
-          <caret line="134" column="19" lean-forward="true" selection-start-line="134" selection-start-column="19" selection-end-line="134" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3230#3231#0" expanded="true" />
-            <element signature="e#3265#3266#0" expanded="true" />
-            <element signature="e#3322#3323#0" expanded="true" />
-            <element signature="e#3370#3371#0" expanded="true" />
-            <element signature="e#3420#3421#0" expanded="true" />
-            <element signature="e#3448#3449#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-20">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/entity/Comment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        <state relative-caret-position="114">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userspace/blogedit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/UserspaceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="108" column="48" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1016,28 +985,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dewittt/blog/controller/CommentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="737">
-          <caret line="48" column="46" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="46" />
+        <state relative-caret-position="-76">
+          <caret line="44" column="13" lean-forward="true" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userspace/blog.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userspace/blogedit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1862">
-          <caret line="98" column="18" selection-start-line="98" selection-start-column="18" selection-end-line="98" selection-end-column="18" />
+        <state relative-caret-position="809">
+          <caret line="66" column="6" lean-forward="true" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userspace/blog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2546">
-          <caret line="134" column="33" lean-forward="true" selection-start-line="134" selection-start-column="33" selection-end-line="134" selection-end-column="33" />
+        <state relative-caret-position="308">
+          <caret line="77" column="38" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userspace/blog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-305">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

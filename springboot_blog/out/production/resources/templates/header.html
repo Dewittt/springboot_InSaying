@@ -39,7 +39,7 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span sec:authentication="name"></span>
                     </button>
-                    <div th:text="${#authentication.principal.id}"></div>
+                    <!--<div th:text="${#authentication.principal.id}"></div>-->
                     <div class="dropdown-menu">
                         <a class="dropdown-item" th:href="@{'/u/' + ${#authentication.principal.username}}">个人主页</a>
                         <a class="dropdown-item" th:href="@{'/u/'+${#authentication.principal.username}} +'/profile'">个人设置</a>
