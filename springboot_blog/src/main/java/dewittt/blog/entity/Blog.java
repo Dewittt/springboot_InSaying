@@ -45,6 +45,18 @@ public class Blog implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @OneToOne(cascade = CascadeType.DETACH,fetch = FetchType.LAZY)
+    @JoinColumn(name = "catalog_id")
+    private Catalog catalog;
+
+    public Catalog getCatalog() {
+        return catalog;
+    }
+
+    public void setCatalog(Catalog catalog) {
+        this.catalog = catalog;
+    }
+
     @Column(nullable = false)
     @org.hibernate.annotations.CreationTimestamp
     private Timestamp createTime;
@@ -53,19 +65,36 @@ public class Blog implements Serializable {
     private Integer readtimes=0;
 
     @Column(name = "commentsSize")
-    private Integer commentsSize;
+    private Integer commentsSize=0;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "blog_comment",joinColumns = @JoinColumn(name = "blog_id",referencedColumnName = "id"))
     private List<Comment> comments;
 
-    @Column(name = "votes")
-    private Integer votes=0;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name = "blog_vote",joinColumns = @JoinColumn(name = "blog_id",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name = "vote_id",referencedColumnName = "id"))
+    private List<Vote> votes;
+
+
+    @Column(name = "voteSize")
+    private Integer voteSize=0;
 
     @Column(name = "tags",length = 100)
     private String tags;
 
     protected Blog() {
+    }
+
+
+
+
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
+        this.voteSize=this.votes.size();
     }
 
     public Long getId() {
@@ -152,6 +181,7 @@ public class Blog implements Serializable {
 
     public void addComment(Comment comment){
         this.comments.add(comment);
+        this.commentsSize = this.comments.size();
     }
 
     public void removeComment(Long commentId){
@@ -165,12 +195,39 @@ public class Blog implements Serializable {
         this.commentsSize = this.comments.size();
     }
 
-    public Integer getVotes() {
-        return votes;
+    public boolean addVote(Vote vote){
+        boolean isExist = false;
+        for (int index=0;index<this.votes.size();index++){
+            if (this.votes.get(index).getUser().getId()==vote.getUser().getId()){
+                isExist = true;
+                break;
+            }
+        }
+        if (!isExist){
+            this.votes.add(vote);
+            this.voteSize = this.votes.size();
+        }
+
+        return isExist;
     }
 
-    public void setVotes(Integer votes) {
-        this.votes = votes;
+    public void removeVote(Long voteId){
+        for (int index=0;index<this.votes.size();index++){
+            if (this.votes.get(index).getId() == voteId){
+                this.votes.remove(index);
+                break;
+            }
+        }
+
+        this.voteSize = this.votes.size();
+    }
+
+    public Integer getVoteSize() {
+        return voteSize;
+    }
+
+    public void setVoteSize(Integer voteSize) {
+        this.voteSize = voteSize;
     }
 
     public String getTags() {

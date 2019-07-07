@@ -1,8 +1,11 @@
 package dewittt.blog.controller;
 
 import dewittt.blog.entity.Blog;
+import dewittt.blog.entity.Catalog;
 import dewittt.blog.entity.User;
+import dewittt.blog.entity.Vote;
 import dewittt.blog.service.BlogService;
+import dewittt.blog.service.CatalogService;
 import dewittt.blog.service.UserService;
 import dewittt.blog.util.ConstraintViolationExceptionHandler;
 import dewittt.blog.vo.Response;
@@ -41,6 +44,9 @@ public class UserspaceController {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private CatalogService catalogService;
+
     @Value("${file.server.url}")
     private String fileServerUrl;
 
@@ -65,7 +71,11 @@ public class UserspaceController {
         Page<Blog> page = null;
 
         if (catalogId != null && catalogId > 0) {
-            //
+            Catalog catalog = catalogService.getCatalogById(catalogId).get();
+            Pageable pageable = PageRequest.of(pageIndex,pageSize);
+            page = blogService.listBlogByCatalog(catalog,pageable);
+            order = "";
+
         } else if (order.equals("hot")) {
             Sort sort = new Sort(Sort.Direction.DESC, "readtimes", "comments", "votes");
             Pageable pageable = PageRequest.of(pageIndex, pageSize, sort);
@@ -85,27 +95,55 @@ public class UserspaceController {
     }
 
     @GetMapping("/{username}/blogs/{id}")
-    public String listBlogsByOrder(@PathVariable("id") Long id, @PathVariable("username") String username, Model model) {
-        User user = null;
-        Optional<Blog> blog = blogService.getBlogById(id);
+    public String getBlogById(@PathVariable("username") String username, @PathVariable("id") Long id, Model model) {
+        User principal = null;
+        Optional<Blog> optionalBlog = blogService.getBlogById(id);
+        Blog blog = null;
+
+        if (optionalBlog.isPresent()) {
+            blog = optionalBlog.get();
+        }
+
         blogService.readingIncrease(id);
+
         boolean isBlogOwner = false;
-        if (SecurityContextHolder.getContext().getAuthentication() != null &&
-                SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString().equals("anonymousUser")) {
-            user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            if (user != null && username.equals(user.getUsername())) {
+        if (SecurityContextHolder.getContext().getAuthentication() != null
+                && SecurityContextHolder.getContext().getAuthentication().isAuthenticated() && !SecurityContextHolder
+                .getContext().getAuthentication().getPrincipal().toString().equals("anonymousUser")) {
+            principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            if (principal != null && username.equals(principal.getUsername())) {
                 isBlogOwner = true;
             }
         }
+
+        List<Vote> votes = blog.getVotes();
+        Vote currentVote = null;
+
+        if (principal !=null) {
+            for (Vote vote : votes) {
+                if (vote.getUser().getUsername().equals(principal.getUsername())) {
+                    currentVote = vote;
+                    break;
+                }
+
+            }
+        }
+
+        model.addAttribute("currentVote",currentVote);
         model.addAttribute("isBlogOwner", isBlogOwner);
-        model.addAttribute("blogModel", blog.get());
+        model.addAttribute("blogModel", blog);
+
         return "/userspace/blog";
     }
 
+
     @GetMapping("/{username}/blogs/edit")
     public ModelAndView editBlog(@PathVariable("username") String username, Model model) {
+        User user = (User) userDetailsService.loadUserByUsername(username);
+        List<Catalog> catalogs = catalogService.listCatalogs(user);
         model.addAttribute("blog", new Blog(null, null, null));
         model.addAttribute("fileServerUrl", fileServerUrl);
+        model.addAttribute("catalogs",catalogs);
         return new ModelAndView("/userspace/blogedit", "blogModel", model);
     }
 
@@ -154,15 +192,22 @@ public class UserspaceController {
 
     @GetMapping("/{username}/blogs/edit/{id}")
     public ModelAndView editBlog(@PathVariable("username") String username, @PathVariable("id") Long id, Model model) {
-        model.addAttribute("blog", blogService.getBlogById(id));
+        User user = (User) userDetailsService.loadUserByUsername(username);
+        List<Catalog> catalogs = catalogService.listCatalogs(user);
+        model.addAttribute("blog", blogService.getBlogById(id).get());
         model.addAttribute("fileServerUrl", fileServerUrl);
+        model.addAttribute("catalogs",catalogs);
         return new ModelAndView("/userspace/blogedit", "blogModel", model);
     }
 
     @PostMapping("/{username}/blogs/edit")
     @PreAuthorize("authentication.name.equals(#username)")
     public ResponseEntity<Response> saveBlog(@PathVariable("username") String username, @RequestBody Blog blog) {
-        try {
+
+        if (blog.getCatalog()==null){
+            return ResponseEntity.ok().body(new Response(false,"没有分类"));
+        }
+        try{
             if (blog.getId() != null) {
                 Optional<Blog> optionalBlog = blogService.getBlogById(blog.getId());
                 if (optionalBlog.isPresent()) {
@@ -170,6 +215,7 @@ public class UserspaceController {
                     originalBlog.setTitle(blog.getTitle());
                     originalBlog.setContent(blog.getContent());
                     originalBlog.setSummary(blog.getSummary());
+                    originalBlog.setCatalog(blog.getCatalog());
                     blogService.saveBlog(originalBlog);
                 }
             } else {

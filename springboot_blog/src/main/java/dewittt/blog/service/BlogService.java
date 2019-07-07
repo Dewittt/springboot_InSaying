@@ -1,6 +1,7 @@
 package dewittt.blog.service;
 
 import dewittt.blog.entity.Blog;
+import dewittt.blog.entity.Catalog;
 import dewittt.blog.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,4 +19,7 @@ public interface BlogService {
     void readingIncrease(Long id);
     Blog createComment(Long blogId, String commentContent);
     void removeComment(Long blogId,Long commentId);
+    Blog createVote(Long blogId);
+    void removeVote(Long blogId,Long voteId);
+    Page<Blog> listBlogByCatalog(Catalog catalog,Pageable pageable);
 }

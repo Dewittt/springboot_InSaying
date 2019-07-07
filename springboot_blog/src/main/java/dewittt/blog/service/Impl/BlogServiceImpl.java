@@ -1,8 +1,6 @@
 package dewittt.blog.service.Impl;
 
-import dewittt.blog.entity.Blog;
-import dewittt.blog.entity.Comment;
-import dewittt.blog.entity.User;
+import dewittt.blog.entity.*;
 import dewittt.blog.repository.BlogRepository;
 import dewittt.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,5 +81,43 @@ public class BlogServiceImpl implements BlogService {
             origionalBlog.removeComment(commentId);
             this.saveBlog(origionalBlog);
         }
+    }
+
+    @Override
+    public Blog createVote(Long blogId) {
+        Optional<Blog> optionalBlog = blogRepository.findById(blogId);
+        Blog originalBlog = null;
+
+        if (optionalBlog.isPresent()){
+            originalBlog = optionalBlog.get();
+
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Vote vote = new Vote(user);
+            boolean isExist = originalBlog.addVote(vote);
+            if (isExist){
+                throw new IllegalArgumentException("该用户已经点赞了");
+            }
+        }
+
+        return this.saveBlog(originalBlog);
+    }
+
+
+    @Override
+    public void removeVote(Long blogId, Long voteId) {
+        Optional<Blog> optionalBlog = blogRepository.findById(blogId);
+        Blog originalBlog = null;
+
+        if (optionalBlog.isPresent()){
+            originalBlog = optionalBlog.get();
+            originalBlog.removeVote(voteId);
+            this.saveBlog(originalBlog);
+        }
+    }
+
+    @Override
+    public Page<Blog> listBlogByCatalog(Catalog catalog, Pageable pageable) {
+        Page<Blog> blogs = blogRepository.findByCatalog(catalog,pageable);
+        return blogs;
     }
 }

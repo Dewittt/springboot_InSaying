@@ -35,8 +35,8 @@
 							class="card-link" th:text="${blogModel.user.username}"></a>
 						发表于 [[${#dates.format(blogModel.createTime, 'yyyy-MM-dd
 						HH:mm')}]] <i class="fa fa-eye" aria-hidden="true">[[${blogModel.readtimes}]]</i>
-						<i class="fa fa-heart-o" aria-hidden="true">[[${blogModel.votes}]]</i>
-						<i class="fa fa-comment-o" aria-hidden="true">[[${blogModel.comments}]]</i>
+						<i class="fa fa-heart-o" aria-hidden="true">[[${blogModel.voteSize}]]</i>
+						<i class="fa fa-comment-o" aria-hidden="true">[[${blogModel.commentsSize}]]</i>
 						<a  th:if="${isBlogOwner}"
 							th:href="'/u/' + ${blogModel.user.username}+ '/blogs/edit/'+ ${blogModel.id}"
 							class="btn btn-primary float-right">编辑</a> <a
@@ -53,8 +53,10 @@
                 <div class="card-block">
 
 
-                    <h5>分类：<a href="/u/waylau/blogs?category=11">
-                        Spring Data
+                    <h5>分类：<a href="/u/dewitt/blogs?catalog=1"
+                              th:href="'/u/'+${blogModel.user.username}+'/blogs?catalogId='+${blogModel.catalog.id}"
+                              th:text="${blogModel.catalog.name}">
+
                     </a></h5>
 
                     <h5>标签：
@@ -76,7 +78,8 @@
                         </div>
                     </div>
                     <button id="submitContent" class="btn btn-primary float-right">发表评论</button>
-                    <button class="btn btn-primary float-right">点赞</button>
+                    <button class="btn btn-primary float-right" th:if="${currentVote}==null" id="submitVote">点赞</button>
+                    <button class="btn btn-primary float-right" th:if="${currentVote}" th:attr="voteId=${currentVote.id}" id="cancelVote">取消点赞</button>
 
                 </div>
                 <div class="card-block" id="mainContainer">
