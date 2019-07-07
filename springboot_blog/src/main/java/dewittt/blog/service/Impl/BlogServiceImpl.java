@@ -3,11 +3,13 @@ package dewittt.blog.service.Impl;
 import dewittt.blog.entity.*;
 import dewittt.blog.repository.BlogRepository;
 import dewittt.blog.service.BlogService;
+import dewittt.blog.service.EsBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -17,15 +19,33 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogRepository blogRepository;
 
+    @Autowired
+    private EsBlogService esBlogService;
+
+    @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
+        boolean isNew = (blog.getId()==null);
+        EsBlog esBlog;
         Blog rblog = blogRepository.save(blog);
+        if (isNew){
+            esBlog = new EsBlog(rblog);
+        }else {
+            esBlog = esBlogService.getEsBlogByBlogId(blog.getId());
+            esBlog.update(rblog);
+        }
+
+        esBlogService.updateEsBlog(esBlog);
+
         return rblog;
     }
 
+    @Transactional
     @Override
     public void removeBlog(Long id) {
         blogRepository.deleteById(id);
+        EsBlog esBlog = esBlogService.getEsBlogByBlogId(id);
+        esBlogService.removeEsBlog(esBlog.getId());
     }
 
     @Override

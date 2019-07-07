@@ -77,9 +77,9 @@ public class UserspaceController {
             order = "";
 
         } else if (order.equals("hot")) {
-            Sort sort = new Sort(Sort.Direction.DESC, "readtimes", "comments", "votes");
+            Sort sort = new Sort(Sort.Direction.DESC, "readtimes", "commentsSize", "voteSize");
             Pageable pageable = PageRequest.of(pageIndex, pageSize, sort);
-            page = blogService.listBlogByTitleVote(user, keyword, pageable);
+            page = blogService.listBlogByTitleVoteAndSort(user, keyword, pageable);
         } else if (order.equals("new")) {
             Pageable pageable = PageRequest.of(pageIndex, pageSize);
             page = blogService.listBlogByTitleVote(user, keyword, pageable);
@@ -214,6 +214,7 @@ public class UserspaceController {
                     Blog originalBlog = optionalBlog.get();
                     originalBlog.setTitle(blog.getTitle());
                     originalBlog.setContent(blog.getContent());
+                    originalBlog.setTags(blog.getTags());
                     originalBlog.setSummary(blog.getSummary());
                     originalBlog.setCatalog(blog.getCatalog());
                     blogService.saveBlog(originalBlog);

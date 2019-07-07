@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,4 +16,5 @@ public interface UserService {
     void removeUser(Long id);
     Optional<User> getUserById(Long id);
     Page<User> listUserByUsernameLike(String username, Pageable pageable);
+    List<User> listUserByUsernames(Collection<String> usernames);
 }

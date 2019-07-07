@@ -30,6 +30,10 @@ $(function() {
         }).fail(function(res) {});
     })
 
+    $(".form-control-tag").tagsInput({
+        'defaultText':"请输入标签"
+    });
+
     // 发布博客
     $("#submitBlog").click(function() {
 

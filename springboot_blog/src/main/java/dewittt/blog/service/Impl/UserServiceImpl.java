@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -43,6 +45,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public Page<User> listUserByUsernameLike(String username, Pageable pageable) {
         username = "%" + username + "%";
         return userRepository.findByUsernameLike(username,pageable);
+    }
+
+    @Override
+    public List<User> listUserByUsernames(Collection<String> usernames) {
+        return userRepository.findByUsernameIn(usernames);
     }
 
 
