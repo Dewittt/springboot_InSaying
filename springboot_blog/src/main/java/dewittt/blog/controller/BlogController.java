@@ -1,20 +1,30 @@
 package dewittt.blog.controller;
 
+import java.util.List;
+
 import dewittt.blog.entity.EsBlog;
+import dewittt.blog.entity.User;
 import dewittt.blog.service.EsBlogService;
+import dewittt.blog.vo.TagVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
 
+/**
+ * Blog 控制器.
+ *
+ * @since 1.0.0 2017年8月23日
+ * @author <a href="https://waylau.com">Way Lau</a>
+ */
 @Controller
 @RequestMapping("/blogs")
 public class BlogController {
@@ -30,20 +40,47 @@ public class BlogController {
             @RequestParam(value="pageIndex",required=false,defaultValue="0") int pageIndex,
             @RequestParam(value="pageSize",required=false,defaultValue="10") int pageSize,
             Model model) {
+
         Page<EsBlog> page = null;
         List<EsBlog> list = null;
-        boolean isEmpty = true;
+        boolean isEmpty = true; // 系统初始化时，没有博客数据
         try {
-            if (order.equals("hot")){
-                Sort sort = new Sort(Sort.Direction.DESC,"readtimes","commentSize","voteSize","createTime");
-                Pageable pageable = PageRequest.of(pageIndex,pageSize,sort);
-                page = esBlogService.listHotestEsBlogs(keyword,pageable);
-            }//改写new了
+            if (order.equals("hot")) { // 最热查询
+                Sort sort = new Sort(Direction.DESC,"readSize","commentSize","voteSize","createTime");
+                Pageable pageable = PageRequest.of(pageIndex, pageSize, sort);
+                page = esBlogService.listHotestEsBlogs(keyword, pageable);
+            } else if (order.equals("new")) { // 最新查询
+                Sort sort = new Sort(Direction.DESC,"createTime");
+                Pageable pageable = PageRequest.of(pageIndex, pageSize, sort);
+                page = esBlogService.listNewestEsBlogs(keyword, pageable);
+            }
 
-
-
-
+            isEmpty = false;
+        } catch (Exception e) {
+            Pageable pageable = PageRequest.of(pageIndex, pageSize);
+            page = esBlogService.listEsBlogs(pageable);
         }
-        return "redirect:/index?order="+order+"&keyword="+keyword;
+
+        list = page.getContent();   // 当前所在页面数据列表
+
+
+        model.addAttribute("order", order);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("page", page);
+        model.addAttribute("blogList", list);
+
+        // 首次访问页面才加载
+        if (!async && !isEmpty) {
+            List<EsBlog> newest = esBlogService.listTop5NewestEsBlogs();
+            model.addAttribute("newest", newest);
+            List<EsBlog> hotest = esBlogService.listTop5HotestEsBlogs();
+            model.addAttribute("hotest", hotest);
+            List<TagVO> tags = esBlogService.listTop30Tags();
+            model.addAttribute("tags", tags);
+            List<User> users = esBlogService.listTop12Users();
+            model.addAttribute("users", users);
+        }
+
+        return (async==true?"/index :: #mainContainerRepleace":"/index");
     }
 }

@@ -1,5 +1,12 @@
 package dewittt.blog.service.Impl;
 
+import static org.elasticsearch.index.query.QueryBuilders.matchAllQuery;
+import static org.elasticsearch.search.aggregations.AggregationBuilders.terms;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import dewittt.blog.entity.EsBlog;
 import dewittt.blog.entity.User;
 import dewittt.blog.repository.EsBlogRepository;
@@ -25,24 +32,15 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Iterator;
-
-import static org.elasticsearch.index.query.QueryBuilders.matchAllQuery;
-import static org.elasticsearch.search.aggregations.AggregationBuilders.terms;
 
 @Service
 public class EsBlogServiceImpl implements EsBlogService {
-
     @Autowired
     private EsBlogRepository esBlogRepository;
-
-    @Autowired
-    private UserService userService;
-
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;
+    @Autowired
+    private UserService userService;
 
     private static final Pageable TOP_5_PAGEABLE = PageRequest.of(0, 5);
     private static final String EMPTY_KEYWORD = "";
@@ -65,21 +63,27 @@ public class EsBlogServiceImpl implements EsBlogService {
     @Override
     public Page<EsBlog> listNewestEsBlogs(String keyword, Pageable pageable) throws SearchParseException {
         Page<EsBlog> pages = null;
-        Sort sort = new Sort(Sort.Direction.DESC, "createTime");
+        Sort sort = new Sort(Direction.DESC, "createTime");
         if (pageable.getSort().isUnsorted()) {
             pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
-            pages = esBlogRepository.findByTitleContainingOrSummaryContainingOrContentContainingOrTagsContaining(keyword, keyword, keyword, keyword, pageable);
         }
+
+        pages = esBlogRepository.findByTitleContainingOrSummaryContainingOrContentContainingOrTagsContaining(
+                keyword, keyword, keyword, keyword, pageable);
+
         return pages;
     }
 
     @Override
     public Page<EsBlog> listHotestEsBlogs(String keyword, Pageable pageable) throws SearchParseException {
-        Sort sort = new Sort(Sort.Direction.DESC, "readtimes", "commentSize", "voteSize", "createTime");
+
+        Sort sort = new Sort(Direction.DESC, "readSize", "commentSize", "voteSize", "createTime");
         if (pageable.getSort().isUnsorted()) {
             pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
         }
-        return esBlogRepository.findByTitleContainingOrSummaryContainingOrContentContainingOrTagsContaining(keyword, keyword, keyword, keyword, pageable);
+
+        return esBlogRepository.findByTitleContainingOrSummaryContainingOrContentContainingOrTagsContaining(
+                keyword, keyword, keyword, keyword, pageable);
     }
 
     @Override
@@ -87,23 +91,42 @@ public class EsBlogServiceImpl implements EsBlogService {
         return esBlogRepository.findAll(pageable);
     }
 
+    /**
+     * 最新前5
+     *
+     * @param keyword
+     * @return
+     */
     @Override
     public List<EsBlog> listTop5NewestEsBlogs() {
-        return this.listNewestEsBlogs(EMPTY_KEYWORD, TOP_5_PAGEABLE).getContent();
+        Page<EsBlog> page = this.listHotestEsBlogs(EMPTY_KEYWORD, TOP_5_PAGEABLE);
+        return page.getContent();
     }
 
+    /**
+     * 最热前5
+     *
+     * @param keyword
+     * @return
+     */
     @Override
     public List<EsBlog> listTop5HotestEsBlogs() {
-        return this.listHotestEsBlogs(EMPTY_KEYWORD, TOP_5_PAGEABLE).getContent();
+        Page<EsBlog> page = this.listHotestEsBlogs(EMPTY_KEYWORD, TOP_5_PAGEABLE);
+        return page.getContent();
     }
 
     @Override
     public List<TagVO> listTop30Tags() {
+
         List<TagVO> list = new ArrayList<>();
+
+        // 查询条件
         SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(matchAllQuery())
                 .withSearchType(SearchType.QUERY_THEN_FETCH).withIndices("blog").withTypes("blog")
                 .addAggregation(terms("tags").field("tags")
                         .order(Terms.Order.count(false)).size(30)).build();
+
+        // 聚合
         Aggregations aggregations = elasticsearchTemplate.query(searchQuery,
                 new ResultsExtractor<Aggregations>() {
                     @Override
@@ -114,7 +137,7 @@ public class EsBlogServiceImpl implements EsBlogService {
 
         StringTerms modelTerms = (StringTerms) aggregations.asMap().get("tags");
 
-        Iterator<StringTerms.Bucket> modelBucketIt = modelTerms.getBuckets().iterator();
+        Iterator<Bucket> modelBucketIt = modelTerms.getBuckets().iterator();
         while (modelBucketIt.hasNext()) {
             Bucket actiontypeBucket = modelBucketIt.next();
 
@@ -125,6 +148,7 @@ public class EsBlogServiceImpl implements EsBlogService {
 
     @Override
     public List<User> listTop12Users() {
+
         List<String> usernamelist = new ArrayList<>();// 存储排序后的用户账号
 
         // 查询条件
@@ -143,7 +167,7 @@ public class EsBlogServiceImpl implements EsBlogService {
 
         StringTerms modelTerms = (StringTerms) aggregations.asMap().get("users");
 
-        Iterator<StringTerms.Bucket> modelBucketIt = modelTerms.getBuckets().iterator();
+        Iterator<Bucket> modelBucketIt = modelTerms.getBuckets().iterator();
         while (modelBucketIt.hasNext()) {
             Bucket actiontypeBucket = modelBucketIt.next();
             String username = actiontypeBucket.getKey().toString();

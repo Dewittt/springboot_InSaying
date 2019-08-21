@@ -1,63 +1,120 @@
 <!DOCTYPE html>
-<html lang="en" data-th-fragment="header"  xmlns:th="http://www.thymeleaf.org"
-                                            xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="en" data-th-fragment="header">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <meta name="_csrf" th:content="${_csrf.token}"/>
-    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
-    <link type="text/css" href="../../css/sample.css" th:href="@{/css/sample.css}" rel="stylesheet" media="screen" />
-    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css" th:href="@{/lib/bootstrap/css/bootstrap.css}">
-    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap-reboot.css" th:href="@{/lib/bootstrap/css/bootstrap-reboot.css}">
-    <link rel="stylesheet" href="../../css/bootstrap-table.css" th:href="@{/css/bootstrap-table.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/index.css" th:href="@{/css/index.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/toastr.css" th:href="@{/css/toastr.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.tagsinput.min.css" th:href="@{/css/jquery.tagsinput.min.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/tether-theme-arrows.css" th:href="@{/css/tether-theme-arrows.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/tether-theme-arrows.css" th:href="@{/css/tether-theme-arrows.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/tether.css" th:href="@{/css/tether.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/component-chosen.css" th:href="@{/css/component-chosen.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/cropbox.css" th:href="@{/css/cropbox.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/blog.css" th:href="@{/css/blog.css}">
-    <link rel="stylesheet" type="text/css" href="../../css/tether-theme-basic.css" th:href="@{/css/tether-theme-basic.css}">
-    <link href="../../css/nprogress.css" type="text/css" th:href="@{/css/nprogress.css}" rel="stylesheet">
-    <link href="../../css/thinker-md.vendor.css" type="text/css" th:href="@{/css/thinker-md.vendor.css}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../css/thymeleaf-bootstrap-paginator.css" th:href="@{/css/thymeleaf-bootstrap-paginator.css}">
-    <link rel="shortcut icon" href="/logo1.ico" th:href="@{/logo1.ico}">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+<!-- CSRF -->
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+<!-- Tether core CSS -->
+<link href="../../css/tether.min.css" th:href="@{/css/tether.css}"
+	rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css" th:href="@{/lib/bootstrap/css/bootstrap.css}">
+
+
+	<!-- Font-Awesome CSS -->
+<link href="../../css/font-awesome.min.css"
+	th:href="@{/css/font-awesome.css}" rel="stylesheet">
+
+<!-- NProgress CSS -->
+<link href="../../css/nprogress.css" th:href="@{/css/nprogress.css}"
+	rel="stylesheet">
+
+<!-- thinker-md CSS -->
+<link href="../../css/thinker-md.vendor.css"
+	th:href="@{/css/thinker-md.vendor.css}" rel="stylesheet">
+
+<!-- bootstrap tags CSS -->
+<link href="../../css/bootstrap-tagsinput.css"
+	th:href="@{/css/jquery.tagsinput.min.css}" rel="stylesheet">
+
+<!-- bootstrap chosen CSS -->
+<link href="../../css/component-chosen.min.css"
+	th:href="@{/css/component-chosen.css}" rel="stylesheet">
+
+<!-- toastr CSS -->
+<link href="../../css/toastr.css" th:href="@{/css/toastr.css}"
+	rel="stylesheet">
+
+<!-- jQuery image cropping plugin CSS -->
+<link href="../../css/cropbox.css" th:href="@{/css/cropbox.css}"
+	rel="stylesheet">
+
+<!-- Custom styles -->
+<link href="../../css/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet">
+<link href="../../css/thymeleaf-bootstrap-paginator.css"
+	th:href="@{/css/thymeleaf-bootstrap-paginator.css}" rel="stylesheet">
+<link href="../../css/blog.css" th:href="@{/css/blog.css}"
+	rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar navbar-light bg-light navbar-expand-lg">
-            <a class="navbar-brand" href="/index" th:href="@{/}">InSaying</a>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" style="width: 75%;" type="text">
-                <a href="/blogs?keyword=d" class="btn btn-outline-secondary my-2 my-sm-0">搜索</a>
-            </form>
-            <div sec:authorize="isAuthenticated()" class="row">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span sec:authentication="name"></span>
-                    </button>
-                    <!--<div th:text="${#authentication.principal.id}"></div>-->
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" th:href="@{'/u/' + ${#authentication.principal.username}}">个人主页</a>
-                        <a class="dropdown-item" th:href="@{'/u/'+${#authentication.principal.username}} +'/profile'">个人设置</a>
-                    </div>
-                </div>
-                <div>
-                    <a th:href="@{'/u/'+${#authentication.principal.username}+'/blogs/edit'}" class="btn btn-outline-success my-2 my-sm-0">写博客</a>
-                </div>
-                <form action="/logout" th:action="@{/logout}" method="post">
-                    <input class="btn-outline-success" type="submit" value="退出">
-                </form>
-            </div>
+	<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
+		<div class="container">
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarsContainer"
+				aria-controls="navbarsExampleContainer" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="/" th:href="@{/}">InSaying</a>
 
-            <div sec:authorize="isAnonymous()">
-                <a href="/login" class="btn btn-outline-success my-2 my-sm-0" type="submit">登录</a>
-                <a href="/register" class="btn btn-outline-success my-2 my-sm-0" type="submit">注册</a>
-            </div>
-        </nav>
-    </div>
+			<!--<div class="collapse navbar-collapse" id="navbarsContainer">-->
+
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)" th:attr="url='/blogs?order=new'">最新
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)" th:attr="url='/blogs?order=hot'">最热</a>
+					</li>
+					<form class="form-inline mt-2 mt-md-0">
+						<input class="form-control mr-sm-2" type="text" placeholder="搜索"
+							id="indexkeyword" th:value="${keyword}"> <a
+							href="javascript:void(0)"
+							class="btn btn-outline-secondary my-2 my-sm-0" id="indexsearch"><i
+							class="fa fa-search" aria-hidden="true"></i></a>
+					</form>
+
+				</ul>
+
+				<div sec:authorize="isAuthenticated()" class="row">
+					<div class="dropdown">
+						<a class=" dropdown-toggle" href="/u/waylau"
+							th:href="@{'/u/' + ${#authentication.principal.username}}"
+							data-toggle="dropdown"><span sec:authentication="name"></span></a>
+						<div class="dropdown-menu">
+							<a class=" dropdown-item" href="/u/waylau"
+								th:href="@{'/u/' + ${#authentication.principal.username}}">个人主页</a> <a
+								class="dropdown-item" href="/u/waylau/profile"
+								th:href="@{'/u/' + ${#authentication.principal.username}} + '/profile'">个人设置</a>
+						</div>
+					</div>
+					<div>
+						<a href="/u/waylau/blogs/edit"
+							th:href="'/u/' + ${#authentication.principal.username} + '/blogs/edit'"
+							class="btn btn-outline-success my-2 my-sm-0">写博客</a>
+					</div>
+
+					<form action="/logout" th:action="@{/logout}" method="post">
+						<input class="btn btn-outline-success " type="submit" value="退出">
+					</form>
+				</div>
+
+				<div sec:authorize="isAnonymous()">
+					<a href="/login" class="btn btn-outline-success my-2 my-sm-0"
+						type="submit">登录</a> <a href="/register"
+						class="btn btn-outline-success my-2 my-sm-0" type="submit">注册</a>
+				</div>
+			</div>
+
+		<!--</div>-->
+	</nav>
 </body>
 </html>

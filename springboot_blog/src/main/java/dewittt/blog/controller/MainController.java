@@ -43,9 +43,9 @@ public class MainController {
     public String register(){return "register";}
 
     @GetMapping("/index")
-    public String index(Principal principal){
+    public String index(){
 
-        return "index";
+        return "redirect:/blogs";
     }
 
     @GetMapping("/login")

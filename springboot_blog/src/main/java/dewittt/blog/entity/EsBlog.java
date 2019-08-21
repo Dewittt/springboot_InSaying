@@ -20,19 +20,19 @@ public class EsBlog implements Serializable {
     @Field(type = FieldType.Long)
     private Long blogId;
 
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.text)
     private String title;
 
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.text)
     private String summary;
 
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.text)
     private String content;
 
-    @Field(type = FieldType.Keyword,index = false)
+    @Field(type = FieldType.keyword,index = false)
     private String username;
 
-    @Field(type = FieldType.Text,index = false)
+    @Field(type = FieldType.text,index = false)
     private String imgPath;
 
     @Field(type = FieldType.Date,index = false)
@@ -47,7 +47,7 @@ public class EsBlog implements Serializable {
     @Field(type = FieldType.Integer,index = false)
     private Integer voteSize=0;
 
-    @Field(type = FieldType.Text,fielddata = true)
+    @Field(type = FieldType.text,fielddata = true)
     private String tags;
 
     protected EsBlog() {

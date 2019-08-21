@@ -75,7 +75,7 @@ public class UserController {
         return ResponseEntity.ok().body(new Response(true,"删除成功!"));
     }
 
-    @GetMapping("edit/{id}")
+    @GetMapping("/edit/{id}")
     public ModelAndView modifyForm(@PathVariable("id")Long id,Model model){
         Optional<User> user = userService.getUserById(id);
         model.addAttribute("user",user.get());
