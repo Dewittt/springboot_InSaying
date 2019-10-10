@@ -19,12 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-/**
- * Blog 控制器.
- *
- * @since 1.0.0 2017年8月23日
- * @author <a href="https://waylau.com">Way Lau</a>
- */
 @Controller
 @RequestMapping("/blogs")
 public class BlogController {
